@@ -2,9 +2,14 @@ radio.onReceivedNumber(function (receivedNumber) {
     signal = 36 - (Math.abs(radio.receivedPacket(RadioPacketProperty.SignalStrength)) - 42)
     x = 5 - (Math.trunc(signal / 10) - 0)
     y = signal % 10 / 2 - 0
-    i = 4
-    j = 0
     if (receivedNumber == 0) {
+        for (let i = 0; i <= 4; i++) {
+            for (let j = 0; j <= 4; j++) {
+                led.unplot(i, j)
+            }
+        }
+        i = 4
+        j = 0
         while (x <= i) {
             for (let j = 0; j <= 4; j++) {
                 led.plot(j, i)
